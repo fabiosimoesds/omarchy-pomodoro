@@ -6,6 +6,18 @@ A pomodoro widget for the [Omarchy](https://omarchy.org) bar. A little tomato si
 - When the time is up, it plays a soft chime and the tomato grows and keeps shaking until you click it.
 - Right-click during a session to stop the timer.
 
+<p align="center">
+  <img src="assets/alarm.gif" alt="The tomato shaking in the bar after a session ends" width="384">
+</p>
+
+| Pick a time | Session running |
+|---|---|
+| <img src="assets/popup.png" alt="Popup with 15, 30 and 45 minute presets and a custom minutes field" width="400"> | <img src="assets/running.png" alt="Popup showing the time left and a Stop button" width="400"> |
+
+When idle, only the tomato stays in the bar:
+
+<img src="assets/bar.png" alt="The tomato next to the clock and weather in the bar" width="360">
+
 ## Install
 
 ```bash
