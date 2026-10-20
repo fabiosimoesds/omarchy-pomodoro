@@ -7,7 +7,7 @@ A pomodoro widget for the [Omarchy](https://omarchy.org) bar. A little tomato si
 - Right-click during a session to stop the timer.
 
 <p align="center">
-  <img src="assets/alarm.gif" alt="The tomato shaking in the bar after a session ends" width="384">
+  <img src="assets/alarm.gif" alt="The tomato shaking in the bar after a session ends until it is clicked" width="304">
 </p>
 
 | Pick a time | Session running |
