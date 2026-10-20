@@ -1,36 +1,58 @@
 # 🍅 Omarchy Pomodoro
 
-Widget de pomodoro para a barra do [Omarchy](https://omarchy.org). Um tomatinho fica na barra e, durante uma sessão, mostra o tempo restante ao lado.
+A pomodoro widget for the [Omarchy](https://omarchy.org) bar. A little tomato sits in the bar and shows the time left next to it while a session runs.
 
-- Passe o mouse sobre o tomate para abrir o popup com atalhos de 15, 30 e 45 minutos, ou escolha um tempo personalizado (1 a 600 min).
-- Quando o tempo acaba, toca um som suave e o tomate cresce e fica tremendo até você clicar nele.
-- Clique com o botão direito durante uma sessão para parar o timer.
+- Hover the tomato to open a popup with 15, 30 and 45 minute presets, or pick a custom time (1–600 min).
+- When the time is up, it plays a soft chime and the tomato grows and keeps shaking until you click it.
+- Right-click during a session to stop the timer.
 
-## Instalação
+## Install
 
 ```bash
 omarchy plugin add https://github.com/fabiosimoesds/omarchy-pomodoro.git --enable
 ```
 
-O instalador pergunta em qual seção da barra colocar o widget. Para escolher uma posição exata:
+The installer asks which bar section to put the widget in. To pick an exact spot:
 
 ```bash
 omarchy plugin enable fabiosimoesds.pomodoro --section center --after omarchy.weather
 ```
 
-## Atualizar e remover
+## Language
+
+The widget follows your system language (`LANG`) and falls back to English. Supported:
+
+| Code | Language | Code | Language |
+|---|---|---|---|
+| `en` | English | `pl` | Polski |
+| `pt` | Português | `ru` | Русский |
+| `es` | Español | `uk` | Українська |
+| `fr` | Français | `tr` | Türkçe |
+| `de` | Deutsch | `ja` | 日本語 |
+| `it` | Italiano | `zh` | 中文 |
+| `nl` | Nederlands | `ko` | 한국어 |
+
+To use a different language than the system one:
+
+```bash
+omarchy bar set fabiosimoesds.pomodoro language pt
+```
+
+Missing your language? Add a line to [`Strings.js`](Strings.js) and open a pull request.
+
+## Update and remove
 
 ```bash
 omarchy plugin update fabiosimoesds.pomodoro
 omarchy plugin remove fabiosimoesds.pomodoro
 ```
 
-Se o widget continuar com a versão antiga depois de atualizar, reinicie o shell com `omarchy restart shell`.
+If the widget still shows the old version after an update, restart the shell with `omarchy restart shell`.
 
-## Requisitos
+## Requirements
 
-Nada além de uma instalação padrão do Omarchy: o som usa `pw-play` (ou `paplay`) com `/usr/share/sounds/freedesktop/stereo/complete.oga`, e o tomate usa a fonte Noto Color Emoji.
+Nothing beyond a standard Omarchy install: the chime uses `pw-play` (or `paplay`) with `/usr/share/sounds/freedesktop/stereo/complete.oga`, and the tomato uses the Noto Color Emoji font.
 
-## Licença
+## License
 
 [MIT](LICENSE)

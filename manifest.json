@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "fabiosimoesds.pomodoro",
   "name": "Pomodoro",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "fabiosimoesds",
-  "description": "Pomodoro timer with hover popup for presets and custom minutes",
+  "description": "Pomodoro timer with hover popup for presets and custom minutes, in 14 languages",
   "kinds": [
     "bar-widget"
   ],

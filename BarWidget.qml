@@ -3,11 +3,13 @@ import Quickshell
 import Quickshell.Hyprland
 import qs.Commons
 import qs.Ui
+import "Strings.js" as Strings
 
 // Pomodoro timer: a tomato in the bar, followed by the remaining time while
 // a session runs. Hovering reveals a popup with 15/30/45 minute presets and a
 // custom minutes field. When the timer ends it plays a soft chime and the
-// tomato grows and keeps shaking until it is clicked.
+// tomato grows and keeps shaking until it is clicked. Labels follow the
+// system language unless the "language" setting overrides it.
 BarWidget {
   id: root
   moduleName: "fabiosimoesds.pomodoro"
@@ -27,6 +29,7 @@ BarWidget {
   readonly property bool opened: popup.open
   readonly property bool hovering: widgetHover.hovered || popup.containsMouse
   readonly property string remainingText: formatTime(remainingSeconds)
+  readonly property var tr: Strings.forLanguage(setting("language", "") || Qt.locale().name)
 
   function formatTime(total) {
     var h = Math.floor(total / 3600)
@@ -247,7 +250,7 @@ BarWidget {
 
       Text {
         width: parent.width
-        text: root.running ? "🍅  " + root.remainingText + " restantes" : "🍅  Pomodoro"
+        text: root.running ? "🍅  " + root.tr.left.arg(root.remainingText) : "🍅  Pomodoro"
         color: popup.fg
         font.family: Style.font.family
         font.pixelSize: Style.font.body
@@ -270,7 +273,7 @@ BarWidget {
 
             Text {
               anchors.centerIn: parent
-              text: parent.modelData + " min"
+              text: parent.modelData + " " + root.tr.min
               color: popup.fg
               font.family: Style.font.family
               font.pixelSize: Style.font.body
@@ -333,7 +336,7 @@ BarWidget {
             anchors.right: parent.right
             anchors.rightMargin: Style.space(8)
             anchors.verticalCenter: parent.verticalCenter
-            text: "min"
+            text: root.tr.min
             color: Qt.rgba(popup.fg.r, popup.fg.g, popup.fg.b, 0.5)
             font.family: Style.font.family
             font.pixelSize: Style.font.bodySmall
@@ -358,14 +361,15 @@ BarWidget {
 
         Rectangle {
           id: startButton
-          width: Style.space(64)
+          width: Math.max(Style.space(64), startLabel.implicitWidth + Style.space(16))
           height: Style.space(32)
           radius: Style.cornerRadius
           color: startMouse.containsMouse ? popup.subtleHover : popup.subtle
 
           Text {
+            id: startLabel
             anchors.centerIn: parent
-            text: "Start"
+            text: root.tr.start
             color: popup.fg
             font.family: Style.font.family
             font.pixelSize: Style.font.body
@@ -393,7 +397,7 @@ BarWidget {
 
         Text {
           anchors.centerIn: parent
-          text: "Parar"
+          text: root.tr.stop
           color: popup.fg
           font.family: Style.font.family
           font.pixelSize: Style.font.bodySmall
