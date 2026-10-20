@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "fabiosimoesds.pomodoro",
+  "name": "Pomodoro",
+  "version": "1.0.0",
+  "author": "fabiosimoesds",
+  "description": "Pomodoro timer with hover popup for presets and custom minutes",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Pomodoro",
+    "description": "Tomato timer next to the clock",
+    "category": "Time",
+    "allowMultiple": false,
+    "defaultSection": "center"
+  }
+}
